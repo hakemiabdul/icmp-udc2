@@ -1,0 +1,26 @@
+[Unit]
+Description=ICMP UDC2 Server
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/opt/icmp-udc2-server
+ExecStart=/usr/bin/python3 /opt/icmp-udc2-server/icmp_udc2_server.py --config /opt/icmp-udc2-server/config.json
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+# Security settings
+NoNewPrivileges=false
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/icmp-udc2-server
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

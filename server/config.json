@@ -1,0 +1,11 @@
+{
+  "ts_addr": "127.0.0.1",
+  "ts_port": 2222,
+  "listen_addr": "0.0.0.0",
+  "max_fragment_size": 65491,
+  "log_level": "INFO",
+  "connection_timeout": 300,
+  "max_connections": 1000,
+  "enable_metrics": false,
+  "config_file": null
+}
